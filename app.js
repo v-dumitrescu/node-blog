@@ -9,6 +9,9 @@ const app = express();
 require('./config/connection');
 require('./config/passport');
 
+const gitHubAuthRoutes = require('./routes/github-auth');
+const googleAuthRoutes = require('./routes/google-auth');
+
 app.use(express.static(path.join(__dirname, 'public')));
 app.set('view engine', 'ejs');
 
@@ -24,16 +27,8 @@ app.get('/', (req, res) => {
   res.send('Node Blog');
 });
 
-app.get('/auth/github', passport.authenticate(
-  'github', 
-  {
-    scope: ['user:email']
-  }
-));
-
-app.get('/github/redirect', passport.authenticate('github'), (req, res) => {
-  res.send('authenticated');
-});
+app.use('/auth/github', gitHubAuthRoutes);
+app.use('/auth/google', googleAuthRoutes);
 
 app.get('/logout', (req, res) => {
   req.logout();
