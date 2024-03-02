@@ -1,0 +1,8 @@
+.articles-index h2, h3, p, a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.article-index:hover {
+  background: #3790E4;
+}

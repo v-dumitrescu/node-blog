@@ -24,7 +24,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.get('/', (req, res) => {
-  res.send('Node Blog');
+  res.render('index');
 });
 
 app.use('/auth/github', gitHubAuthRoutes);
