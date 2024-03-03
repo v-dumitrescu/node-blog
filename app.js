@@ -9,8 +9,10 @@ const app = express();
 require('./config/connection');
 require('./config/passport');
 
-const gitHubAuthRoutes = require('./routes/github-auth');
-const googleAuthRoutes = require('./routes/google-auth');
+const gitHubAuthRoutes = require('./routes/auth/github-auth');
+const googleAuthRoutes = require('./routes/auth/google-auth');
+
+const articlesRoutes = require('./routes/articles/articles');
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.set('view engine', 'ejs');
@@ -29,6 +31,8 @@ app.get('/', (req, res) => {
 
 app.use('/auth/github', gitHubAuthRoutes);
 app.use('/auth/google', googleAuthRoutes);
+
+app.use('/articles', articlesRoutes);
 
 app.get('/logout', (req, res) => {
   req.logout();
