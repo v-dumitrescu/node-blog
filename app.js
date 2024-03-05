@@ -16,6 +16,7 @@ const articlesRoutes = require('./routes/articles/articles');
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.set('view engine', 'ejs');
+app.use('/tinymce', express.static(path.join(__dirname, 'node_modules', 'tinymce')));
 
 app.use(cookieSession({
   maxAge: 24 * 60 * 60 * 1000,
