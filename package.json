@@ -1,7 +1,7 @@
 {
   "name": "blog",
   "version": "1.0.0",
-  "description": "A node.js blog with oauth authentication",
+  "description": "A node.js blog with oauth and local authentication. It also contains a chat",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -9,10 +9,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/v-dumitrescu/node-blog.git"
+    "url": ""
   },
   "author": "Valentin Dumitrescu",
-  "license": "AGPL-3.0",
+  "license": "",
   "devDependencies": {
     "nodemon": "^3.1.0"
   },
