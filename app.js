@@ -1,10 +1,12 @@
 const path = require('path');
-
+const bodyParser = require('body-parser');
 require('dotenv').config();
 const express = require('express');
 const passport = require('passport');
 const cookieSession = require('cookie-session');
 const app = express();
+
+app.use(bodyParser.urlencoded({extended: false}));
 
 require('./config/connection');
 require('./config/passport');
