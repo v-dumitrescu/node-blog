@@ -5,3 +5,8 @@ a {
 .article-index:hover {
   background: #3790E4;
 }
+
+.user-avatar {
+  width: 27px;
+  height: auto;
+}

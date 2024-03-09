@@ -18,9 +18,9 @@ require('./passport');
 const passport = require('passport');
 
 // Set Public Directories
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, '..', 'public')));
 app.set('view engine', 'ejs');
-app.use('/tinymce', express.static(path.join(__dirname, 'node_modules', 'tinymce')));
+app.use('/tinymce', express.static(path.join(__dirname, '..', 'node_modules', 'tinymce')));
 
 // Body Parser
 app.use(bodyParser.urlencoded({extended: false}));
@@ -39,6 +39,11 @@ app.use(passport.session());
 const gitHubAuthRoutes = require('../routes/auth/github-auth');
 const googleAuthRoutes = require('../routes/auth/google-auth');
 const articlesRoutes = require('../routes/articles/articles');
+
+app.use((req, res, next) => {
+  res.locals.user = req.user || null;
+  next();
+});
 
 // Index Pages
 app.get('/', (req, res) => {
