@@ -17,9 +17,11 @@ require('./connection');
 require('./passport');
 const passport = require('passport');
 
+// View Engine
+app.set('view engine', 'ejs');
+
 // Set Public Directories
 app.use(express.static(path.join(__dirname, '..', 'public')));
-app.set('view engine', 'ejs');
 app.use('/tinymce', express.static(path.join(__dirname, '..', 'node_modules', 'tinymce')));
 
 // Body Parser
