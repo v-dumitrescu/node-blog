@@ -10,7 +10,7 @@ router.get('/', passport.authenticate(
 ));
 
 router.get('/redirect', passport.authenticate('github'), (req, res) => {
-  res.send('authenticated');
+  res.redirect('/articles/dashboard');
 });
 
 module.exports = router;

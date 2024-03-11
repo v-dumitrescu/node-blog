@@ -48,12 +48,27 @@ const createArticle = (req, res) => {
   };
   new Article(setArticle)
     .save()
-    .then((article) => res.redirect('/dashboard'))
+    .then((article) => res.redirect('/articles/dashboard'))
     .catch(err => console.log(err));
+};
+
+const getDashboard = (req, res) => {
+  Article.find({
+    user: req.user.id
+  })
+  .sort({date: 'desc'})
+  .then(articles => {
+    res.render('articles/dashboard', {
+      articles,
+      date
+    });
+  })
+  .catch(err => console.log(err));
 };
 
 module.exports = {
   getArticles,
   getArticleForm,
-  createArticle
+  createArticle,
+  getDashboard
 };
