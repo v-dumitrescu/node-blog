@@ -1,0 +1,37 @@
+<%- include('../partials/header') %>
+
+<div class="container mt-3 text-white">
+  <h3>User Registration</h3>
+
+  <form action="/users/register" method="POST" class="w-50">
+    <div class="mb-3">
+      <label for="email" class="form-label">Email address</label>
+      <input type="email" class="form-control" name="email" id="email">
+    </div>
+
+    <div class="mb-3">
+      <label for="firstName" class="form-label">First Name</label>
+      <input type="text" class="form-control" name="firstName" id="firstName">
+    </div>
+
+    <div class="mb-3">
+      <label for="lastName" class="form-label">Last Name</label>
+      <input type="text" class="form-control" name="lastName" id="lastName">
+    </div>
+
+    <div class="mb-3">
+      <label for="password" class="form-label">Password</label>
+      <input type="password" class="form-control" id="password" name="password">
+    </div>
+
+    <div class="mb-3">
+      <label for="passwordv" class="form-label">Verify Password</label>
+      <input type="password" class="form-control" id="passwordv" name="passwordv">
+    </div>
+    <p><a href="/users/signin" class="link-light">Already got an account?</a></p>
+    <button type="submit" class="btn btn-block w-100 btn-primary">Submit</button>
+  </form>
+
+</div>
+
+<%- include('../partials/footer') %>

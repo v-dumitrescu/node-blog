@@ -40,6 +40,11 @@ app.use(passport.session());
 // Oauth Strategies
 const gitHubAuthRoutes = require('../routes/auth/github-auth');
 const googleAuthRoutes = require('../routes/auth/google-auth');
+
+// Users Routes
+const usersRoutes = require('../routes/users/users');
+
+// Articles Routes
 const articlesRoutes = require('../routes/articles/articles');
 
 app.use((req, res, next) => {
@@ -55,6 +60,9 @@ app.get('/', (req, res) => {
 // Oauth Routes
 app.use('/auth/github', gitHubAuthRoutes);
 app.use('/auth/google', googleAuthRoutes);
+
+// User Routes
+app.use('/users', usersRoutes);
 
 // Articles Routes
 app.use('/articles', articlesRoutes);
