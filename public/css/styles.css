@@ -10,3 +10,11 @@ a {
   width: 29px;
   height: auto;
 }
+
+.main-logo {
+  display: block;
+  margin: auto;
+  background-color: #fff;
+  width: 25%;
+  border-radius: 10px;
+}
