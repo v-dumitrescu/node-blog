@@ -37,9 +37,10 @@ app.use(cookieSession({
 app.use(passport.initialize());
 app.use(passport.session());
 
-// Oauth Strategies
+// Passport Strategies
 const gitHubAuthRoutes = require('../routes/auth/github-auth');
 const googleAuthRoutes = require('../routes/auth/google-auth');
+const localAuthRoutes = require('../routes/auth/local-auth');
 
 // Users Routes
 const usersRoutes = require('../routes/users/users');
@@ -57,9 +58,10 @@ app.get('/', (req, res) => {
   res.render('index');
 });
 
-// Oauth Routes
+// Authentication Routes
 app.use('/auth/github', gitHubAuthRoutes);
 app.use('/auth/google', googleAuthRoutes);
+app.use('/auth', localAuthRoutes);
 
 // User Routes
 app.use('/users', usersRoutes);
